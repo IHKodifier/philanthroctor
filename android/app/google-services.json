@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "446376986909",
+    "firebase_url": "https://philanthroctor.firebaseio.com",
+    "project_id": "philanthroctor",
+    "storage_bucket": "philanthroctor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446376986909:android:44f717c40153746594f9f4",
+        "android_client_info": {
+          "package_name": "EnigmaTek.Inc.philanthroctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446376986909-p43d78aog4b2phl9nk0tuqr5g6vpmg5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5yAsafgXCcRQDa_j5bfQSxJDM5ec7k5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446376986909-p43d78aog4b2phl9nk0tuqr5g6vpmg5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
