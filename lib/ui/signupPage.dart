@@ -25,9 +25,9 @@ class _SignUpPageState extends State<SignUpPage> {
           style: Theme.of(context)
               .textTheme
               .title
-              .copyWith(color: Theme.of(context).primaryColor),
+              .copyWith(color: Theme.of(context).primaryColor,),
         ),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       body: Container(
         child: Padding(
@@ -40,10 +40,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   padding: const EdgeInsets.only(top: 30.0),
                   child: PhilanthroctorLogo(),
                 ),
+                SizedBox(height:40),
                 Padding(
                   padding: const EdgeInsets.only(bottom:8),
                   child: TextField(
-                    style: GoogleFonts.raleway(color: Colors.black, fontSize: 22),
+                    style: GoogleFonts.raleway(color: Colors.black, fontSize: 18),
                     decoration: InputDecoration(
                       hintText: 'Enter a valid email to set as username',
                       labelText: 'Email',
@@ -119,7 +120,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   child: Text(
                     'By clicking the \"Sign Up\" button, you agree to the terms and Conditions set by the Philanthroctor.',
-                    style: Theme.of(context).textTheme.subtitle,
+                    style: Theme.of(context).textTheme.subtitle.copyWith(
+                      fontSize: 18,
+                      ),
                   ),
                 ),
                 Container(

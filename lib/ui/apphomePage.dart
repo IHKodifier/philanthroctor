@@ -67,12 +67,12 @@ class _AppHomePageState extends State<AppHomePage>
         // backgroundColor: hhfScaffoldBackgroundLight,
         title: Text(
             'Philanthroctor',
-            style: GoogleFonts.nanumBrushScript(
+            style: GoogleFonts.dancingScript(
               textStyle: Theme.of(context).textTheme.display1,
               fontSize: 38,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).primaryColor,),),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       body: TabBarView(
         children: _tabViews,

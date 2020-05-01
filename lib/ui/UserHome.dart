@@ -3,6 +3,7 @@ import 'package:philanthroctor/packageLib.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:philanthroctor/ui/horizontal_list_View.dart';
+import 'package:philanthroctor/widgets/kittystaus.dart';
 
 class UserHome extends StatefulWidget {
   @override
@@ -31,17 +32,9 @@ class _UserHomeState extends State<UserHome> {
             return ListView(
               children: <Widget>[
                 SizedBox(height: 5),
-                _buildhorizontalRow('New and Un -Acknowleged',
-                    'Cases that await Doctor\'s Acknowledgment'),
-                _buildhorizontalRow('Recently Acknowleged',
-                    'Cases thar are recently acknowledged by the Doctor'),
-                _buildhorizontalRow('Awaiting assessment',
-                    'Cases that await \"inclusion/exclusion evaluations\"'),
-                _buildhorizontalRow('Recently assessed',
-                    'Caes that have recently been evaluated for \"inclusion/exclusion\"'),
-                _buildhorizontalRow('Recently Approved',
-                    'eligible for inclusion in philanthroctor Program'),
-                _buildhorizontalRow('Awaiting procedure', ''),
+                KittyStatus(),  
+                // Text ('TEST HELLO',style: TextStyle(color: Colors.black),),       
+               
                 _buildhorizontalRow(
                     'Awaiting follow up & documentation', ''),
                 _buildhorizontalRow('Recently Approved', ''),
@@ -87,3 +80,5 @@ class _UserHomeState extends State<UserHome> {
     );
   }
 }
+
+

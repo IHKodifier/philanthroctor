@@ -39,11 +39,12 @@ class MyApp extends StatelessWidget {
       accentColor: Colors.green.shade400,
       scaffoldBackgroundColor: Colors.white,
       buttonTheme: const ButtonThemeData().copyWith(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+       
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         textTheme: ButtonTextTheme.primary,
       ),
       inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(18)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         counterStyle: GoogleFonts.roboto(color: Colors.black),
       ),
 
@@ -56,19 +57,19 @@ class MyApp extends StatelessWidget {
       ),
 
       textTheme: baseTheme.textTheme.copyWith(
-        title: GoogleFonts.raleway(
+        title: GoogleFonts.shadowsIntoLight(
           fontSize: 24.0,
           fontWeight: FontWeight.bold,
           color: Colors.black,
         ),
-        subtitle: GoogleFonts.raleway(
+        subtitle: GoogleFonts.shadowsIntoLight(
             fontSize: 16.0, color: Colors.black54, fontStyle: FontStyle.italic),
-        headline: GoogleFonts.raleway(),
-        subhead: GoogleFonts.raleway(),
-        body1: GoogleFonts.raleway(),
+        headline: GoogleFonts.shadowsIntoLight(),
+        subhead: GoogleFonts.shadowsIntoLight(),
+        body1: GoogleFonts.shadowsIntoLight(),
         body2: baseTheme.textTheme.body2.copyWith(color: Colors.black),
-        caption: GoogleFonts.raleway(color: Colors.black),
-        button: GoogleFonts.raleway(
+        caption: GoogleFonts.shadowsIntoLight(color: Colors.black),
+        button: GoogleFonts.shadowsIntoLight(
             fontSize: 18.0,
             fontWeight: FontWeight.w700,
             letterSpacing: 5.5,
