@@ -11,12 +11,12 @@ dependencies:
   cloud_firestore: 
   font_awesome_flutter:
   google_fonts:
-  # cupertino_icons: ^0.1.2
+  cupertino_icons: ^0.1.2
   flutter_launcher_icons: ^0.7.4
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^0.1.2
+ 
 
 dev_dependencies:
   flutter_test:

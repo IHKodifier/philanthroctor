@@ -1,10 +1,6 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:philanthroctor/packageLib.dart';
 import 'package:philanthroctor/ui/appDrawer.dart';
-// import 'package:philanthroctor/ui/bottomNavBar.dart';
-// import 'package:philanthroctor/ui/caseTile.dart';
-// import 'package:philanthroctor/ui/myFelexibleAppBar.dart';
-// import 'package:philanthroctor/ui/newcase.dart'
 
 class AppHomePage extends StatefulWidget {
   @override
@@ -16,6 +12,19 @@ class _AppHomePageState extends State<AppHomePage>
   TabController _tabcontroller;
   List<Tab> _tabs = <Tab>[];
   List<Widget> _tabViews = [];
+  int fabIndex = 0;
+  List<FloatingActionButton> _fabs;
+  // = [
+  //   FloatingActionButton(
+  //       child: Icon(
+  //         Icons.add,
+  //         size: 35,
+  //         // color: Theme.of(context).primaryColor,
+  //       ),
+  //       onPressed: () {}),
+  //   null,
+  //   null
+  // ];
 
   @override
   void initState() {
@@ -25,15 +34,9 @@ class _AppHomePageState extends State<AppHomePage>
       Tab(
         icon: Icon(
           Icons.home,
-          // color: Colors.black,
         ),
-        // text: 'Home',
         child: Text(
           'Home',
-          // style: Theme.of(context)
-          // .textTheme
-          // .subhead
-          // .copyWith(color: Colors.black),
         ),
       ),
       Tab(
@@ -50,6 +53,15 @@ class _AppHomePageState extends State<AppHomePage>
       DashBoard(),
       AppMessage(),
     ];
+
+    _tabcontroller.addListener(_getFab);
+    fabIndex = _tabcontroller.index;
+  }
+
+  void _getFab() {
+    setState(() {
+      fabIndex = _tabcontroller.index;
+    });
   }
 
   @override
@@ -61,41 +73,65 @@ class _AppHomePageState extends State<AppHomePage>
 
   @override
   Widget build(BuildContext context) {
+    _fabs = [
+      FloatingActionButton(
+          //  clipBehavior:,
+          backgroundColor: Theme.of(context).accentColor,
+          child: Icon(
+            Icons.add,
+            size: 45,
+            color: Theme.of(context).primaryColor,
+          ),
+          onPressed: () {
+            Navigator.of(context).pushNamed('/newCase');
+          }),
+      null,
+      null
+    ];
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
-        // actionsIconTheme: Theme.of(context).iconTheme.copyWith(color: Colors.black),
-        // backgroundColor: hhfScaffoldBackgroundLight,
         title: Text(
-            'Philanthroctor',
-            style: GoogleFonts.dancingScript(
-              textStyle: Theme.of(context).textTheme.display1,
-              fontSize: 38,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).primaryColor,),),
-        // centerTitle: true,
+          'Philanthroctor',
+          style: GoogleFonts.dancingScript(
+            textStyle: Theme.of(context).textTheme.display1,
+            fontSize: 38,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
       ),
       body: TabBarView(
         children: _tabViews,
         controller: _tabcontroller,
       ),
-      bottomNavigationBar: Material(
-          color: Theme.of(context).primaryColor,
-          // color: Colors.blueGrey.shade200,
-          // color: Colors.blueGrey.shade50,
-          elevation: 10.0,
-          child: Container(
-            height: 70.0,
-            child: TabBar(
-              tabs: _tabs,
-              controller: _tabcontroller,
-              indicatorSize: TabBarIndicatorSize.tab,
-              indicatorWeight: 10.0,
-              indicatorColor: Theme.of(context).accentColor,
-              // labelColor: Theme.of(context).accentColor,
-              // isScrollable: true,
-            ),
-          )),
+      bottomNavigationBar: BottomAppBar(
+        clipBehavior: Clip.antiAlias,
+        elevation: 2,
+        notchMargin: 8,
+        color: Theme.of(context).accentColor,
+        shape: CircularNotchedRectangle(),
+        child: buildBottomBar(context),
+      ),
       drawer: AppDrawer(),
+      floatingActionButton: _fabs[fabIndex],
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
+  }
+
+  Material buildBottomBar(BuildContext context) {
+    return Material(
+        color: Theme.of(context).primaryColor,
+        elevation: 10.0,
+        child: Container(
+          height: 65.0,
+          child: TabBar(
+            tabs: _tabs,
+            controller: _tabcontroller,
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorWeight: 10.0,
+            indicatorColor: Theme.of(context).accentColor,
+          ),
+        ));
   }
 }

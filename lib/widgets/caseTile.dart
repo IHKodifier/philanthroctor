@@ -14,20 +14,19 @@ class CaseTile extends StatefulWidget {
 class _CaseTileState extends State<CaseTile> {
   @override
   Widget build(BuildContext context) {
-    String _photoUrl = 'http://i.pravatar.cc/';
-    _photoUrl += Random().nextInt(400).toString();
+    // String _photoUrl = 'http://i.pravatar.cc/';
+    // _photoUrl += Random().nextInt(400).toString();
     return InkWell(
       splashColor: Theme.of(context).accentColor,
       onTap: () {},
       child: Container(
-        // color: Colors.pink.shade300,
-        height: 200,
+        height: 120,
         width: 220,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
               color: Color(0xffeeeeee),
-              blurRadius: 15.0,
+              blurRadius: 5.0,
               spreadRadius: 3,
             ),
           ],
@@ -39,17 +38,13 @@ class _CaseTileState extends State<CaseTile> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top:8,bottom: 8),
+                padding: const EdgeInsets.only(top: 8, bottom: 8),
                 child: ClipRRect(
-                               borderRadius: BorderRadius.circular(50),
-                                child: Container(
-                    height:100,
+                  borderRadius: BorderRadius.circular(50),
+                  child: Container(
+                    height: 100,
                     width: 100,
-                    child: Image.network(
-                      _photoUrl,
-                      height: 100,
-                      fit: BoxFit.scaleDown,
-                    ),
+                    child: Icon(Icons.account_circle,size: 80,color: Theme.of(context).primaryColor,),
                   ),
                 ),
               ),
@@ -68,13 +63,13 @@ class _CaseTileState extends State<CaseTile> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4.0),
                       child: Text(
-                        widget.docsnap.data['nokType'],
+                        widget.docsnap.data['NIC'],
                         style: Theme.of(context).textTheme.subtitle.copyWith(
                             fontSize: 12, fontStyle: FontStyle.italic),
                       ),
                     ),
                     Text(
-                      widget.docsnap.data['nokTitle'],
+                      widget.docsnap.data['age'],
                       style: Theme.of(context)
                           .textTheme
                           .title

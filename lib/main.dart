@@ -5,8 +5,9 @@ import 'package:philanthroctor/ui/UserHome.dart';
 import 'package:philanthroctor/ui/apphomePage.dart';
 import 'package:philanthroctor/ui/loginPage.dart';
 import 'package:philanthroctor/ui/newAccountSuccess.dart';
+import 'package:philanthroctor/ui/newcase.dart';
 import 'package:philanthroctor/ui/signupPage.dart';
-import 'package:philanthroctor/widgets/philanthroctorLogo.dart';
+// import 'package:philanthroctor/widgets/philanthroctorLogo.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
           // ),
           '/appHome': (BuildContext context) => AppHomePage(),
           '/signup': (BuildContext context) => SignUpPage(),
+          '/newCase':(BuildContext context) => NewCase(),
           '/userHome': (BuildContext context) => UserHome(),
           '/newAccountSuccess': (BuildContext context) => NewAccountSuccess(),
         },
@@ -57,19 +59,19 @@ class MyApp extends StatelessWidget {
       ),
 
       textTheme: baseTheme.textTheme.copyWith(
-        title: GoogleFonts.shadowsIntoLight(
+        title: GoogleFonts.robotoCondensed(
           fontSize: 24.0,
           fontWeight: FontWeight.bold,
           color: Colors.black,
         ),
-        subtitle: GoogleFonts.shadowsIntoLight(
+        subtitle: GoogleFonts.robotoCondensed(
             fontSize: 16.0, color: Colors.black54, fontStyle: FontStyle.italic),
-        headline: GoogleFonts.shadowsIntoLight(),
-        subhead: GoogleFonts.shadowsIntoLight(),
-        body1: GoogleFonts.shadowsIntoLight(),
+        headline: GoogleFonts.robotoCondensed(),
+        subhead: GoogleFonts.robotoCondensed(),
+        body1: GoogleFonts.robotoCondensed(),
         body2: baseTheme.textTheme.body2.copyWith(color: Colors.black),
-        caption: GoogleFonts.shadowsIntoLight(color: Colors.black),
-        button: GoogleFonts.shadowsIntoLight(
+        caption: GoogleFonts.robotoCondensed(color: Colors.black),
+        button: GoogleFonts.robotoCondensed(
             fontSize: 18.0,
             fontWeight: FontWeight.w700,
             letterSpacing: 5.5,

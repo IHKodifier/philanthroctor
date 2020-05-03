@@ -14,7 +14,7 @@ class PhilanthroctorLogo extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             'Philanthroctor',
-            style: GoogleFonts.shadowsIntoLight(
+            style: GoogleFonts.dancingScript(
               textStyle: Theme.of(context).textTheme.display1,
               fontSize: 46.0,
               fontWeight: FontWeight.bold,
