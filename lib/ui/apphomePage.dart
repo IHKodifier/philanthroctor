@@ -14,17 +14,7 @@ class _AppHomePageState extends State<AppHomePage>
   List<Widget> _tabViews = [];
   int fabIndex = 0;
   List<FloatingActionButton> _fabs;
-  // = [
-  //   FloatingActionButton(
-  //       child: Icon(
-  //         Icons.add,
-  //         size: 35,
-  //         // color: Theme.of(context).primaryColor,
-  //       ),
-  //       onPressed: () {}),
-  //   null,
-  //   null
-  // ];
+  
 
   @override
   void initState() {

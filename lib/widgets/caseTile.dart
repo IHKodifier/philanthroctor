@@ -14,8 +14,7 @@ class CaseTile extends StatefulWidget {
 class _CaseTileState extends State<CaseTile> {
   @override
   Widget build(BuildContext context) {
-    // String _photoUrl = 'http://i.pravatar.cc/';
-    // _photoUrl += Random().nextInt(400).toString();
+   
     return InkWell(
       splashColor: Theme.of(context).accentColor,
       onTap: () {},
@@ -37,51 +36,63 @@ class _CaseTileState extends State<CaseTile> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 8, bottom: 8),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    child: Icon(Icons.account_circle,size: 80,color: Theme.of(context).primaryColor,),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      widget.docsnap.data['caseTitle'],
-                      style: Theme.of(context)
-                          .textTheme
-                          .title
-                          .copyWith(fontSize: 16),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      child: Text(
-                        widget.docsnap.data['NIC'],
-                        style: Theme.of(context).textTheme.subtitle.copyWith(
-                            fontSize: 12, fontStyle: FontStyle.italic),
-                      ),
-                    ),
-                    Text(
-                      widget.docsnap.data['age'],
-                      style: Theme.of(context)
-                          .textTheme
-                          .title
-                          .copyWith(fontSize: 16),
-                    )
+              _buildProfileAvatar(context),
+              _buildCaseTitle(context),
+                    _buildNIC(context),
+                    _buildAge(context),
+             
                   ],
                 ),
               ),
-            ],
+            
           ),
-        ),
-      ),
-    );
+        );
+      
+    // );
+  }
+
+  Text _buildAge(BuildContext context) {
+    return Text(
+                    widget.docsnap.data['age'],
+                    style: Theme.of(context)
+                        .textTheme
+                        .title
+                        .copyWith(fontSize: 16),
+                  );
+  }
+
+  Padding _buildNIC(BuildContext context) {
+    return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: Text(
+                      widget.docsnap.data['NIC'],
+                      style: Theme.of(context).textTheme.subtitle.copyWith(
+                          fontSize: 12, fontStyle: FontStyle.italic),
+                    ),
+                  );
+  }
+
+  Text _buildCaseTitle(BuildContext context) {
+    return Text(
+                    widget.docsnap.data['caseTitle'],
+                    style: Theme.of(context)
+                        .textTheme
+                        .title
+                        .copyWith(fontSize: 16),
+                  );
+  }
+
+  Padding _buildProfileAvatar(BuildContext context) {
+    return Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 8),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  child: Icon(Icons.account_circle,size: 80,color: Theme.of(context).primaryColor,),
+                ),
+              ),
+            );
   }
 }

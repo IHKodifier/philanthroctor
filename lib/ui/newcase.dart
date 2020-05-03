@@ -37,11 +37,13 @@ class _NewCaseState extends State<NewCase> {
             _buildCaseTiltleTextFormField(localTheme),
             _buildNICTextFormField(localTheme),
             _buildAgeTextFormField(localTheme),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             SizedBox(
               width: double.infinity,
               height: 90,
-            child: _buildButtonBar(localTheme),
+              child: _buildButtonBar(localTheme),
             ),
           ],
         )),
@@ -134,30 +136,39 @@ class _NewCaseState extends State<NewCase> {
         mainAxisSize: MainAxisSize.max,
         layoutBehavior: ButtonBarLayoutBehavior.padded,
         children: <Widget>[
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal:8.0,vertical:4),
-      child: FlatButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('CANCEL',style: TextStyle(color: Colors.black45),)),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal:12.0,vertical:4),
-      child: RaisedButton(
-          color: localTheme.accentColor,
-          child: Text('SAVE',style: TextStyle(color: Colors.black54),),
-          onPressed: _onSaveButtonPressed,
-    )
-        ],
-      );
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+            child: FlatButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'CANCEL',
+                  style: TextStyle(color: Colors.black45),
+                )),
+          ),
+          Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4),
+              child: RaisedButton(
+                color: localTheme.accentColor,
+                child: Text(
+                  'SAVE',
+                  style: TextStyle(color: Colors.black54),
+                ),
+                onPressed: _onSaveButtonPressed,
+              )),
+        ]);
   }
+
   void _onSaveButtonPressed() async {
-    Firestore.instance.collection('cases').add{
+    Firestore.instance.collection('cases').add({
       'NIC': _nic,
       'age': _age,
-      'caseTitle':_caseTitle,
-
-    };
+      'caseTitle': _caseTitle,
+      'timestamp': DateTime.now().toString()
+    }).then((value) {
+      Navigator.of(context).pop();
+    });
   }
 }

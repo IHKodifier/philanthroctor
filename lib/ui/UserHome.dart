@@ -33,6 +33,8 @@ class _UserHomeState extends State<UserHome> {
                   return CircularProgressIndicator();
                 } else {
                   return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       HorizontalRow(
                           title: 'Case Queue',
