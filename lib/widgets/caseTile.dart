@@ -53,6 +53,7 @@ class _CaseTileState extends State<CaseTile> {
 
   Text _buildAge(BuildContext context) {
     return Text(
+                    'Age : '+
                     widget.docsnap.data['age'],
                     style: Theme.of(context)
                         .textTheme
@@ -65,6 +66,7 @@ class _CaseTileState extends State<CaseTile> {
     return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4.0),
                     child: Text(
+                      'NIC : '+
                       widget.docsnap.data['NIC'],
                       style: Theme.of(context).textTheme.subtitle.copyWith(
                           fontSize: 12, fontStyle: FontStyle.italic),
@@ -90,7 +92,7 @@ class _CaseTileState extends State<CaseTile> {
                 child: Container(
                   height: 100,
                   width: 100,
-                  child: Icon(Icons.account_circle,size: 80,color: Theme.of(context).primaryColor,),
+                  child: Icon(Icons.account_circle,size: 100,color: Theme.of(context).primaryColor,),
                 ),
               ),
             );

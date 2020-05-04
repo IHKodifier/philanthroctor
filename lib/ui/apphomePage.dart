@@ -70,7 +70,7 @@ class _AppHomePageState extends State<AppHomePage>
           child: Icon(
             Icons.add,
             size: 45,
-            color: Theme.of(context).primaryColor,
+            color: Colors.black87,
           ),
           onPressed: () {
             Navigator.of(context).pushNamed('/newCase');
@@ -118,9 +118,10 @@ class _AppHomePageState extends State<AppHomePage>
           child: TabBar(
             tabs: _tabs,
             controller: _tabcontroller,
-            indicatorSize: TabBarIndicatorSize.tab,
+            // indicatorSize: TabBarIndicatorSize.tab,
             indicatorWeight: 10.0,
             indicatorColor: Theme.of(context).accentColor,
+            labelColor: Theme.of(context).accentColor,
           ),
         ));
   }

@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         textTheme: ButtonTextTheme.primary,
       ),
       inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
         counterStyle: GoogleFonts.roboto(color: Colors.black),
       ),
 
@@ -57,21 +57,28 @@ class MyApp extends StatelessWidget {
         color: baseTheme.scaffoldBackgroundColor,
         iconTheme: baseTheme.iconTheme.copyWith(color: Colors.green[900]),
       ),
+      tabBarTheme: baseTheme.tabBarTheme.copyWith(
+        unselectedLabelColor: Colors.grey.shade400,
+        unselectedLabelStyle: TextStyle(color: Colors.grey.shade400),
+        labelColor: baseTheme.primaryColor,
+        
+        
+      ),
 
       textTheme: baseTheme.textTheme.copyWith(
-        title: GoogleFonts.robotoCondensed(
+        title: GoogleFonts.gentiumBookBasic(
           fontSize: 24.0,
           fontWeight: FontWeight.bold,
           color: Colors.black,
         ),
-        subtitle: GoogleFonts.robotoCondensed(
+        subtitle: GoogleFonts.roboto(
             fontSize: 16.0, color: Colors.black54, fontStyle: FontStyle.italic),
-        headline: GoogleFonts.robotoCondensed(),
-        subhead: GoogleFonts.robotoCondensed(),
-        body1: GoogleFonts.robotoCondensed(),
+        headline: GoogleFonts.roboto(),
+        subhead: GoogleFonts.roboto(),
+        body1: GoogleFonts.roboto(),
         body2: baseTheme.textTheme.body2.copyWith(color: Colors.black),
-        caption: GoogleFonts.robotoCondensed(color: Colors.black),
-        button: GoogleFonts.robotoCondensed(
+        caption: GoogleFonts.roboto(color: Colors.black),
+        button: GoogleFonts.roboto(
             fontSize: 18.0,
             fontWeight: FontWeight.w700,
             letterSpacing: 5.5,

@@ -42,7 +42,7 @@ class _HorizontalRowState extends State<HorizontalRow> {
                 this.rowtitle,
                 style: Theme.of(context).textTheme.title.copyWith(
                       fontSize: 22,
-                      fontFamily: GoogleFonts.robotoCondensed().toString(),
+                      fontFamily: GoogleFonts.roboto().toString(),
                       color: Colors.black87,
                     ),
               ),
@@ -53,7 +53,7 @@ class _HorizontalRowState extends State<HorizontalRow> {
                 this.rowdescription,
                 style: Theme.of(context).textTheme.subhead.copyWith(
                     fontSize: 14,
-                    fontFamily: GoogleFonts.robotoCondensed().toString(),
+                    fontFamily: GoogleFonts.roboto().toString(),
                     color: Colors.black38,
                     fontStyle: FontStyle.italic),
               ),

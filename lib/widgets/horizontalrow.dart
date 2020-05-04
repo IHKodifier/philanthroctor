@@ -1,47 +1,59 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:philanthroctor/packageLib.dart';
+import 'package:philanthroctor/widgets/caseTile.dart';
 
 class HorizontalRow extends StatefulWidget {
   final String title;
   final String description;
-  HorizontalRow({this.title, this.description});
+  final AsyncSnapshot snapshot;
+  HorizontalRow({this.title, this.description, this.snapshot});
 
   @override
   _HorizontalRowState createState() => _HorizontalRowState(
-      rowtitle: this.title, rowdescription: this.description);
+      rowtitle: this.title,
+      rowdescription: this.description,
+      rowsnapshot: this.snapshot);
 }
 
 class _HorizontalRowState extends State<HorizontalRow> {
   final String rowtitle;
   final String rowdescription;
-  _HorizontalRowState({this.rowtitle, this.rowdescription});
+  final AsyncSnapshot rowsnapshot;
+  _HorizontalRowState({this.rowtitle, this.rowdescription, this.rowsnapshot});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+        
+        //
+        height: 320,
         child: Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(left: 8, top: 4, bottom: 16),
+              padding: const EdgeInsets.only(left: 8, top: 4, bottom: 8),
               child: Text(
                 this.rowtitle,
                 style: Theme.of(context).textTheme.title.copyWith(
-                      fontSize: 18,
+                      fontSize: 22,
+                      fontFamily: GoogleFonts.roboto().toString(),
                       color: Colors.black87,
                     ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, top: 4, bottom: 16),
+              padding: const EdgeInsets.only(left: 8,  bottom: 4),
               child: Text(
                 this.rowdescription,
                 style: Theme.of(context).textTheme.subhead.copyWith(
                     fontSize: 14,
+                    fontFamily: GoogleFonts.roboto().toString(),
                     color: Colors.black38,
                     fontStyle: FontStyle.italic),
               ),
@@ -66,8 +78,9 @@ class _HorizontalRowState extends State<HorizontalRow> {
 
   Widget _buildListView(AsyncSnapshot snapshot) {
     List<DocumentSnapshot> _list = snapshot.data.documents;
-    
+
     return ListView.builder(
+        shrinkWrap: true,
         itemCount: _list.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {

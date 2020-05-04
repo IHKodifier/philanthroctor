@@ -1,129 +1,174 @@
-// import 'package:philanthroctor/packageLib.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:philanthroctor/widgets/kittystaus.dart';
-// import 'dart:math';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:philanthroctor/packageLib.dart';
 
-// class UserHome extends StatefulWidget {
+// class NewCase extends StatefulWidget {
 //   @override
-//   _UserHomeState createState() => _UserHomeState();
+//   _NewCaseState createState() => _NewCaseState();
 // }
 
-// class _UserHomeState extends State<UserHome> {
-//   @override
-//   void initState() {
-//     super.initState();
-//   }
+// class _NewCaseState extends State<NewCase> {
+//   TextEditingController _caseTitleController, _ageController, _nicController;
+
+//   String _caseTitle, _age, _nic, _city, _phone;
 
 //   @override
 //   Widget build(BuildContext context) {
-//     return Column(
-//         mainAxisAlignment: MainAxisAlignment.start,
-//         crossAxisAlignment: CrossAxisAlignment.center,
+//     ThemeData localTheme = Theme.of(context);
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(
+//           'New Case',
+//           style: GoogleFonts.dancingScript(
+//             textStyle: Theme.of(context).textTheme.display1,
+//             fontSize: 28.0,
+//             fontWeight: FontWeight.bold,
+//             color: Theme.of(context).primaryColor,
+//           ),
+//         ),
+//         // centerTitle: true,
+//       ),
+//       body: SingleChildScrollView(
+//         child: Form(
+//             child: Column(
+//           mainAxisAlignment: MainAxisAlignment.start,
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             _buildCaseTiltleTextFormField(localTheme),
+//             _buildNICTextFormField(localTheme),
+//             _buildAgeTextFormField(localTheme),
+//             SizedBox(
+//               height: 10,
+//             ),
+//             SizedBox(
+//               width: double.infinity,
+//               height: 90,
+//               child: _buildButtonBar(localTheme),
+//             ),
+//           ],
+//         )),
+//       ),
+//     );
+//   }
+
+//   Widget _buildCaseTiltleTextFormField(ThemeData localTheme) {
+//     return Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: TextFormField(
+//         style: GoogleFonts.roboto(color: Colors.black, fontSize: 22),
+//         controller: _caseTitleController,
+//         decoration: InputDecoration(
+//           hintText: 'Enter name of Case / Patient',
+//           labelText: 'Name ',
+//           labelStyle: localTheme.textTheme.title.copyWith(
+//             color: localTheme.primaryColor,
+//             fontSize: 16.0,
+//           ),
+//           hintStyle: localTheme.textTheme.subhead.copyWith(
+//             fontSize: 16.0,
+//             color: Colors.black54,
+//             fontStyle: FontStyle.italic,
+//           ),
+//         ),
+//         onChanged: (value) {
+//           _caseTitle = value;
+//         },
+//       ),
+//     );
+//   }
+
+//   Widget _buildNICTextFormField(ThemeData localTheme) {
+//     return Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: TextFormField(
+//         style: GoogleFonts.roboto(color: Colors.black, fontSize: 22),
+//         keyboardType: TextInputType.number,
+//         controller: _nicController,
+//         decoration: InputDecoration(
+//           hintText: 'National Identity Card #',
+//           labelText: 'NIC',
+//           labelStyle: localTheme.textTheme.title.copyWith(
+//             color: localTheme.primaryColor,
+//             fontSize: 16.0,
+//           ),
+//           hintStyle: localTheme.textTheme.subhead.copyWith(
+//             fontSize: 16.0,
+//             color: Colors.black54,
+//             fontStyle: FontStyle.italic,
+//           ),
+//         ),
+//         onChanged: (value) {
+//           _nic = value;
+//         },
+//       ),
+//     );
+//   }
+
+//   Widget _buildAgeTextFormField(ThemeData localTheme) {
+//     return Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: TextFormField(
+//         style: GoogleFonts.roboto(color: Colors.black, fontSize: 22),
+//         controller: _ageController,
+//         keyboardType: TextInputType.numberWithOptions(),
+//         decoration: InputDecoration(
+//           hintText: 'Age of the case / Patient',
+//           labelText: 'Age',
+//           labelStyle: localTheme.textTheme.title.copyWith(
+//             color: localTheme.primaryColor,
+//             fontSize: 16.0,
+//           ),
+//           hintStyle: localTheme.textTheme.subhead.copyWith(
+//             fontSize: 16.0,
+//             color: Colors.black54,
+//             fontStyle: FontStyle.italic,
+//           ),
+//         ),
+//         onChanged: (value) {
+//           _age = value;
+//         },
+//       ),
+//     );
+//   }
+
+//   Widget _buildButtonBar(ThemeData localTheme) {
+//     return ButtonBar(
+//         mainAxisSize: MainAxisSize.max,
+//         layoutBehavior: ButtonBarLayoutBehavior.padded,
 //         children: <Widget>[
-//           _buildDummyKittyWidget(),
-//           _buildDummyCaseList(),
-//           _buildActualKittyWidget(),
-//           _buildActualCaseList(),
-         
+//           Padding(
+//             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+//             child: FlatButton(
+//                 onPressed: () {
+//                   Navigator.pop(context);
+//                 },
+//                 child: Text(
+//                   'CANCEL',
+//                   style: TextStyle(color: Colors.black45),
+//                 )),
+//           ),
+//           Padding(
+//               padding:
+//                   const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4),
+//               child: RaisedButton(
+//                 color: localTheme.accentColor,
+//                 child: Text(
+//                   'SAVE',
+//                   style: TextStyle(color: Colors.black54),
+//                 ),
+//                 onPressed: _onSaveButtonPressed,
+//               )),
 //         ]);
 //   }
 
-//   Widget _buildDummyKittyWidget() {
-//     return KittyStatus();
-//   }
-
-//   Widget _buildDummyCaseList() {
-//     return Container(
-//       height: 40,
-//       color: Colors.teal,
-//       child: Text(
-//         'dummy case list',
-//         style: TextStyle(fontSize: 20),
-//       ),
-//     );
-//   }
-
-//   Widget _buildActualKittyWidget() {
-//     return Container(
-//       height: 40,
-//       color: Colors.red,
-//       child: Text('actualkitty'),
-//     );
-//   }
-
-//   Widget _buildActualCaseList() {
-//     // String _photoUrl = 'https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png';
-//     // _photoUrl += Random().nextInt(400).toString();33
-//     return InkWell(
-//       splashColor: Theme.of(context).accentColor,
-//       onTap: () {},
-//       child: Container(
-//         // color: Colors.pink.shade300,
-//         height: 200,
-//         width: 220,
-//         decoration: BoxDecoration(
-//           boxShadow: [
-//             BoxShadow(
-//               color: Color(0xffeeeeee),
-//               blurRadius: 15.0,
-//               spreadRadius: 3,
-//             ),
-//           ],
-//         ),
-//         child: Card(
-//           elevation: 15,
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.center,
-//             mainAxisAlignment: MainAxisAlignment.start,
-//             children: <Widget>[
-//               Padding(
-//                 padding: const EdgeInsets.only(top: 8, bottom: 8),
-//                 child: ClipRRect(
-//                   borderRadius: BorderRadius.circular(50),
-//                   child: Container(
-//                     height: 100,
-//                     width: 100,
-//                     child: Container(),
-//                   ),
-//                 ),
-//               ),
-//               Padding(
-//                 padding: const EdgeInsets.all(8.0),
-//                 child: Wrap(
-//                   alignment: WrapAlignment.center,
-//                   children: <Widget>[
-//                     Text(
-//                       // widget.docsnap.data['caseTitle'],
-//                       'Sakina ',
-//                       style: Theme.of(context)
-//                           .textTheme
-//                           .title
-//                           .copyWith(fontSize: 16),
-//                     ),
-//                     Padding(
-//                       padding: const EdgeInsets.symmetric(horizontal: 4.0),
-//                       child: Text(
-//                         // widget.docsnap.data['nokType'],
-//                         'wife of ',
-//                         style: Theme.of(context).textTheme.subtitle.copyWith(
-//                             fontSize: 12, fontStyle: FontStyle.italic),
-//                       ),
-//                     ),
-//                     Text(
-//                       // widget.docsnap.data['nokTitle'],
-//                       'Murad',
-//                       style: Theme.of(context)
-//                           .textTheme
-//                           .title
-//                           .copyWith(fontSize: 16),
-//                     )
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
+//   void _onSaveButtonPressed() async {
+//     Firestore.instance.collection('cases').add({
+//       'NIC': _nic,
+//       'age': _age,
+//       'caseTitle': _caseTitle,
+//       'timestamp': DateTime.now().toString()
+//     }).then((value) {
+//       Navigator.of(context).pop();
+//     });
 //   }
 // }
