@@ -26,4 +26,3 @@ Map<int, Color> colorCodes = {
   900: Color.fromRGBO(196, 22, 28, 1),
 };
 
-MaterialColor hhfPrimarySwatch= MaterialColor(0xFFC4161C, colorCodes);

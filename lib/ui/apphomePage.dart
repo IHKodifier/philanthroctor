@@ -1,3 +1,4 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:philanthroctor/packageLib.dart';
 import 'package:philanthroctor/ui/appDrawer.dart';
@@ -19,29 +20,24 @@ class _AppHomePageState extends State<AppHomePage>
   @override
   void initState() {
     super.initState();
-    _tabcontroller = TabController(length: 3, vsync: this);
+    _tabcontroller = TabController(length: 2, vsync: this);
     _tabs = [
       Tab(
-        icon: Icon(
-          Icons.home,
-        ),
+        icon:FaIcon(FontAwesomeIcons.listOl),
         child: Text(
-          'Home',
+          'Cases',
         ),
       ),
       Tab(
-        icon: Icon(Icons.pie_chart),
-        text: 'Dashboard',
+        icon: FaIcon(FontAwesomeIcons.coins),
+        text: 'Donations',
       ),
-      Tab(
-        icon: Icon(Icons.chat),
-        text: 'Chat',
-      )
+      
     ];
     _tabViews = [
       UserHome(),
       DashBoard(),
-      AppMessage(),
+      // AppMessage(),
     ];
 
     _tabcontroller.addListener(_getFab);
@@ -119,7 +115,7 @@ class _AppHomePageState extends State<AppHomePage>
             tabs: _tabs,
             controller: _tabcontroller,
             // indicatorSize: TabBarIndicatorSize.tab,
-            indicatorWeight: 10.0,
+            indicatorWeight: 6.0,
             indicatorColor: Theme.of(context).accentColor,
             labelColor: Theme.of(context).accentColor,
           ),
