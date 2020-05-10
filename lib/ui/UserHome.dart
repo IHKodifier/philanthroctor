@@ -21,10 +21,8 @@ class _UserHomeState extends State<UserHome> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            _buildDummyKittyWidget(),
-            // _buildDummyCaseList(),
-            // _buildActualKittyWidget(),
-            // _buildActualCaseList(),
+            // _buildDummyKittyWidget(),
+            
             StreamBuilder(
               stream: Firestore.instance.collection('cases').snapshots(),
               initialData: 'Loading',
@@ -84,74 +82,76 @@ class _UserHomeState extends State<UserHome> {
   }
 
   Widget _buildActualCaseList() {
-    return InkWell(
-      splashColor: Theme.of(context).accentColor,
-      onTap: () {},
-      child: Container(
-        // color: Colors.pink.shade300,
-        height: 200,
-        width: 220,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Color(0xffeeeeee),
-              blurRadius: 15.0,
-              spreadRadius: 3,
-            ),
-          ],
-        ),
-        child: Card(
-          elevation: 15,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 8, bottom: 8),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    color: Colors.purple,
-                    // child: Container(height: 50,width: 50,color: Colors.deepOrange,)
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      // widget.docsnap.data['caseTitle'],
-                      'Sakina ',
-                      style: Theme.of(context)
-                          .textTheme
-                          .title
-                          .copyWith(fontSize: 16),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      child: Text(
-                        // widget.docsnap.data['nokType'],
-                        'wife of ',
-                        style: Theme.of(context).textTheme.subtitle.copyWith(
-                            fontSize: 12, fontStyle: FontStyle.italic),
-                      ),
-                    ),
-                    Text(
-                      // widget.docsnap.data['nokTitle'],
-                      'Murad',
-                      style: Theme.of(context)
-                          .textTheme
-                          .title
-                          .copyWith(fontSize: 16),
-                    )
-                  ],
-                ),
+    return Card(
+          child: InkWell(
+        splashColor: Theme.of(context).accentColor,
+        onTap: () {},
+        child: Container(
+          // color: Colors.pink.shade300,
+          height: 200,
+          width: 220,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xffeeeeee),
+                blurRadius: 15.0,
+                spreadRadius: 3,
               ),
             ],
+          ),
+          child: Card(
+            elevation: 15,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 8, bottom: 8),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      color: Colors.purple,
+                      // child: Container(height: 50,width: 50,color: Colors.deepOrange,)
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        // widget.docsnap.data['caseTitle'],
+                        'Sakina ',
+                        style: Theme.of(context)
+                            .textTheme
+                            .title
+                            .copyWith(fontSize: 16),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                        child: Text(
+                          // widget.docsnap.data['nokType'],
+                          'wife of ',
+                          style: Theme.of(context).textTheme.subtitle.copyWith(
+                              fontSize: 12, fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                      Text(
+                        // widget.docsnap.data['nokTitle'],
+                        'Murad',
+                        style: Theme.of(context)
+                            .textTheme
+                            .title
+                            .copyWith(fontSize: 16),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

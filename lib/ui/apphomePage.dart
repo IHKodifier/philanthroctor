@@ -36,7 +36,7 @@ class _AppHomePageState extends State<AppHomePage>
     ];
     _tabViews = [
       UserHome(),
-      DashBoard(),
+      Donation(),
       // AppMessage(),
     ];
 

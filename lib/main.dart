@@ -5,6 +5,7 @@ import 'package:philanthroctor/ui/UserHome.dart';
 import 'package:philanthroctor/ui/apphomePage.dart';
 import 'package:philanthroctor/ui/loginPage.dart';
 import 'package:philanthroctor/ui/newAccountSuccess.dart';
+import 'package:philanthroctor/ui/viewCase.dart';
 import 'package:philanthroctor/ui/newcase.dart';
 import 'package:philanthroctor/ui/signupPage.dart';
 // import 'package:philanthroctor/widgets/philanthroctorLogo.dart';
@@ -28,40 +29,27 @@ class MyApp extends StatelessWidget {
           '/signup': (BuildContext context) => SignUpPage(),
           '/newCase': (BuildContext context) => NewCase(),
           '/userHome': (BuildContext context) => UserHome(),
+          '/viewCase': (BuildContext context) => ViewCase(),
           '/newAccountSuccess': (BuildContext context) => NewAccountSuccess(),
         },
         theme: _buildThemeData());
   }
 
   ThemeData _buildThemeData() {
-    final baseTheme = ThemeData();
+    final baseTheme = ThemeData(primarySwatch: Colors.green);
 
     return baseTheme.copyWith(
-      primaryColor: Colors.green.shade900,
-      colorScheme: ColorScheme(
-          primary: Colors.green.shade900,
-          primaryVariant: Colors.green.shade600,
-          secondary: Colors.orange[600],
-          secondaryVariant: Colors.orange[50],
-          surface: Colors.white,
-          background: Colors.white70,
-          error: Colors.red,
-          onPrimary: Colors.white,
-          onSecondary: Colors.black,
-          onSurface: Colors.green[900],
-          onBackground: Colors.green[900],
-          onError: Colors.white,
-          brightness: Brightness.light),
-      accentColor: Colors.green.shade400,
+      // accentColor: Colors.green.shade400,
+      primaryColor: Colors.green[900],
       scaffoldBackgroundColor: Colors.white,
       buttonTheme: const ButtonThemeData().copyWith(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         textTheme: ButtonTextTheme.primary,
       ),
-      inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-        counterStyle: GoogleFonts.roboto(color: Colors.black),
-      ),
+      // inputDecorationTheme: InputDecorationTheme(
+      //   border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+      //   counterStyle: GoogleFonts.roboto(color: Colors.black),
+      // ),
       cardTheme: CardTheme(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
@@ -80,7 +68,7 @@ class MyApp extends StatelessWidget {
         trackShape: RoundedRectSliderTrackShape(),
         trackHeight: 4.0,
         thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-        // thumbColor: Colors.green[900],
+        thumbColor: Colors.green[900],
         overlayColor: Colors.green[900].withAlpha(50),
         overlayShape: RoundSliderOverlayShape(overlayRadius: 38.0),
         tickMarkShape: RoundSliderTickMarkShape(),
@@ -89,7 +77,7 @@ class MyApp extends StatelessWidget {
         valueIndicatorShape: PaddleSliderValueIndicatorShape(),
         valueIndicatorColor: Colors.green[900],
         valueIndicatorTextStyle: TextStyle(
-          color: Colors.white,
+          color: baseTheme.primaryColor,
           fontSize: 20,
         ),
       ),

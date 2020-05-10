@@ -35,7 +35,7 @@ export 'package:philanthroctor/ui/notifications.dart';
 
 
 
-export 'package:philanthroctor/ui/dashboard.dart';
+export 'package:philanthroctor/ui/donations.dart';
 
 
 

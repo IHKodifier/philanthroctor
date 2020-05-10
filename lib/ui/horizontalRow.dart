@@ -30,47 +30,49 @@ class _HorizontalRowState extends State<HorizontalRow> {
         height: 320,
         child: Padding(
       padding: const EdgeInsets.all(8.0),
-      child: InkWell(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 8, top: 4, bottom: 8),
-              child: Text(
-                this.rowtitle,
-                style: Theme.of(context).textTheme.title.copyWith(
-                      fontSize: 22,
+      child: Material(
+              child: InkWell(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 4, bottom: 8),
+                child: Text(
+                  this.rowtitle,
+                  style: Theme.of(context).textTheme.title.copyWith(
+                        fontSize: 22,
+                        fontFamily: GoogleFonts.roboto().toString(),
+                        color: Colors.black87,
+                      ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8,  bottom: 4),
+                child: Text(
+                  this.rowdescription,
+                  style: Theme.of(context).textTheme.subhead.copyWith(
+                      fontSize: 14,
                       fontFamily: GoogleFonts.roboto().toString(),
-                      color: Colors.black87,
-                    ),
+                      color: Colors.black38,
+                      fontStyle: FontStyle.italic),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8,  bottom: 4),
-              child: Text(
-                this.rowdescription,
-                style: Theme.of(context).textTheme.subhead.copyWith(
-                    fontSize: 14,
-                    fontFamily: GoogleFonts.roboto().toString(),
-                    color: Colors.black38,
-                    fontStyle: FontStyle.italic),
+              Expanded(
+                child: StreamBuilder(
+                    stream: Firestore.instance.collection('cases').snapshots(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        //return valid builder
+                        return _buildListView(snapshot);
+                      } else {
+                        return Text('no data');
+                      }
+                    }),
               ),
-            ),
-            Expanded(
-              child: StreamBuilder(
-                  stream: Firestore.instance.collection('cases').snapshots(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      //return valid builder
-                      return _buildListView(snapshot);
-                    } else {
-                      return Text('no data');
-                    }
-                  }),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     ));

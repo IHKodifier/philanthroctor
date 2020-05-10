@@ -23,6 +23,7 @@ class _KittyStatusState extends State<KittyStatus> {
           padding: const EdgeInsets.only(left: 8.0, top: 8),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(8.0),
